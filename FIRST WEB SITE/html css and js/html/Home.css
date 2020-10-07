@@ -1,0 +1,19 @@
+.edittext {
+    background-color: #354152;
+    border: 2px solid rgb(14, 248, 34);
+}
+
+.save {
+    background-color: #354152;
+}
+
+.colorwhite {
+    color: white;
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 15px;
+}

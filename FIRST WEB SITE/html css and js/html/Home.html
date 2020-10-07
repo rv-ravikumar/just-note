@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="Home.css">
 
     <title>justNote</title>
 </head>
@@ -16,39 +17,42 @@
 <body>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg  bg-dark ">
-        <a class="navbar  btn-outline-success my-2 my-sm-0" href="Home.html"> <b>jUSTNOTE</b></a>
+        <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="Home.html"> <b>jUSTNOTE</b></a>
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon "></span>
-    </button>
+            <span class="navbar-toggler-icon "></span>
+        </button>
 
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active ">
-                    <a class="nav-link  btn-outline-success" href="Home.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link btn btn-outline-warning" href="Home.html">Home <span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle  btn-outline-success my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Types
-          </a>
+                    <a class="nav-link dropdown-toggle  btn-outline-warning my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Types
+                    </a>
                     <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item  btn-outline-success my-2 my-sm-0" href="paragraph.html">Paragraph</a>
-                        <a class="dropdown-item  btn-outline-success my-2 my-sm-0" href="checkbox.html">check box</a>
+                        <a class="dropdown-item  btn-outline-warning my-2 my-sm-0" href="paragraph.html">Paragraph</a>
+                        <a class="dropdown-item  btn-outline-warning my-2 my-sm-0" href="checkbox.html">check box</a>
                         <div class="dropdown-divider "></div>
                     </div>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link  btn-outline-success my-2 my-sm-0" href="Howtouse.html">How to Use <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="Howtouse.html">How to Use <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link  btn-outline-success my-2 my-sm-0" href="About.html">About <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="About.html">About <span
+                            class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0 ">
-                <input class="form-control mr-sm-2 btn btn-outline-success my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2 btn btn-outline-warning my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -63,7 +67,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://source.unsplash.com/900x300/?note,laptop
+                <img src="https://source.unsplash.com/900x150/?note,laptop
                 " class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
 
@@ -72,7 +76,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/900x300/?note,tablet
+                <img src="https://source.unsplash.com/900x150/?note,tablet
                 " class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
@@ -80,7 +84,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/900x300/?note,phone
+                <img src="https://source.unsplash.com/900x150/?note,phone
                 " class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
@@ -96,6 +100,45 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+    <!-- tool -->
+    <div id="toolbar">
+
+        <tbody>
+            <tr>
+                <td><button class="save btn btn-outline-warning my-2 my-sm-0" type="button" name="B1" title="New" onclick="New()">
+                        <class="material-icons">Save
+                    </button></td>
+                <td><button class="save btn btn-outline-warning my-2 my-sm-0" type="button" name="B1" title="New" onclick="New()">
+                        <class="material-icons">New
+                    </button></td>
+                <td><button class="save btn btn-outline-warning my-2 my-sm-0" type="button" name="B1" title="New" onclick="New()">
+                        <class="material-icons">Edit
+                    </button></td>
+
+            </tr>
+        </tbody>
+
+
+
+
+    </div>
+    <br>
+    <div>
+        <tbody>
+            <tr style="display:none">
+                <td style="color: aliceblue;">Enter file name:</td>
+                <td><input type="text" class="btn btn-outline-warning my-2 my-sm-0" id="filename" name="filename" placeholder="filename.txt" style="width:150px; padding:5px;"></td>
+                <td><input class="btn btn-outline-warning my-2 my-sm-0" type="button" id="save" name="save" value="Save" onclick="saveFile()" style="padding:5px 10px 5px 10px; margin:0px"></td>
+                <td><input type="button" class="btn btn-outline-warning my-2 my-sm-0" id="cancel" name="cancel" value="Cancel" onclick="cancelSaveFile()" style="padding:5px; margin:0px"></td>
+            </tr>
+        </tbody>
+    </div>
+    <br>
+
+    <!-- notebox -->
+    <div id="editable_text_box">
+        <textarea rows="15" name="editable_text" class="edittext btn-outline-warning my-2 my-sm-0" style="width: 100%; max-width: 100%; min-width: 100% 354152; height: 600px; resize: vertical;" placeholder="Your text..." autofocus=""></textarea>
     </div>
 
 
