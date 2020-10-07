@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="toolbar">
+
+        <tbody>
+            <tr>
+                <td><button type="button" name="B1" title="New" onclick="New()"><i class="material-icons">insert_drive_file</i></button></td>
+                <td><button type="button" name="B2" title="Open" onclick="Open()"><i class="material-icons">folder_open</i></button></td>
+                <td><button type="button" name="B3" title="Save to Downloads folder" onclick="Save()"><i class="material-icons">save</i></button></td>
+                <td><button type="button" name="B4" title="Cut" onclick="Cut(0)"><i class="material-icons">content_cut</i></button></td>
+                <td><button type="button" name="B5" title="Copy" onclick="Copy()"><i class="material-icons">content_copy</i></button></td>
+                <td><button type="button" name="B6" title="Paste" onclick="Paste()"><i class="material-icons">content_paste</i></button></td>
+                <td><button type="button" name="B7" title="Undo" onclick="Undo()"><i class="material-icons">undo</i></button></td>
+                <td><button type="button" name="B8" title="Redo" onclick="Redo()"><i class="material-icons">redo</i></button></td>
+                <td><button type="button" name="B9" title="Zoom Out" onclick="DecSize()"><i class="material-icons">zoom_out</i></button></td>
+                <td><button type="button" name="B10" title="Zoom In" onclick="IncSize()"><i class="material-icons">zoom_in</i></button></td>
+                <td><button type="button" name="B11" title="Help"><a href="notepad_help.html"><i class="material-icons">help_outline</i></a></button></td>
+                <td><input type="file" multiple="" id="fileElem" name="fileElem[]" style="visibility:hidden; width:30px" onchange="loadFile()"></td>
+            </tr>
+        </tbody>
+
+
+        <tbody>
+            <tr id="getFilename" style="display:none">
+                <td>Enter file name:</td>
+                <td><input type="text" id="filename" name="filename" placeholder="filename.txt" style="width:150px; padding:5px;"></td>
+                <td><input type="button" id="save" name="save" value="Save" onclick="saveFile()" style="padding:5px 10px 5px 10px; margin:0px"></td>
+                <td><input type="button" id="cancel" name="cancel" value="Cancel" onclick="cancelSaveFile()" style="padding:5px; margin:0px"></td>
+            </tr>
+        </tbody>
+
+    </div>
+</body>
+
+</html>
