@@ -1,18 +1,29 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paragraph</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="shotcut icon" href="{% static 'image/justnote.png' %}" sizes="152 x 152">
     <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+    <link rel="shotcut icon" href="{% static 'image/justnote.png' %}" sizes="152 x 152">
+    <link rel="stylesheet" href="Home.css">
+    <title>justNote</title>
+    <style>
+
+    </style>
+
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg  bg-dark  ">
+<body style="background-color: #354152;">
+
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg  bg-dark container-xl  ">
 
 
 
@@ -44,6 +55,7 @@
         </button>
         <div class="collapse navbar-collapse  " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
+
                 <li class="nav-item active">
                     <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
                             class="sr-only">(current)</span></a>
@@ -56,12 +68,11 @@
         </div>
 
     </nav>
-
     {% if not lst%}
     <h1 style="color:  rgba(240, 248, 255, 0.726);">No Note is Created Yet!!!</h1><br>
     <h3 style="color:  rgba(240, 248, 255, 0.726);">Click New Button To create Your Note.</h3>
     {% endif %}
-    <div id="toolbar">
+    <div id="toolbar ">
 
         <tbody>
             <tr>
@@ -75,12 +86,12 @@
     </div>
     <br>
     <div class="container">
-        <div class="row">
+        <div class="row ">
             {% for post in lst %}
-            <div class="col-sm">
-                <div class='col-sm-6' style="top:10px; ">
-                    <div class="card" style="width: 18rem;  width:470px; margin-top:20px; box-shadow: 10px 10px 5px rgb(8, 7, 7);">
-                        <div class="card-body">
+            <div class="col-sm ">
+                <div class='col-sm-6 ' style="top:10px; ">
+                    <div class="card btn btn-outline-warning" style="width: 18rem;  width:470px; margin-top:20px; box-shadow: 10px 10px 5px rgb(8, 7, 7);">
+                        <div class="card-body  ">
                             <h5 class="card-title"><a href="">{{post.title}}</h5>
                                 <p class="card-text" style=" width: 450px;overflow: hidden;height:100px;">{{post.content}}</p>
                                 <a href="{% url 'post_view' post.id %}" class="btn btn-primary">View</a>

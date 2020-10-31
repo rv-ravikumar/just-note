@@ -13,31 +13,42 @@
     <link rel="shotcut icon" href="{% static 'image/justnote.png' %}">
     <title>Signin</title>
     <style>
-        .errorlist{
+        .errorlist {
             color: rgba(255, 0, 0, 0.301);
-            list-style:disc;
+            list-style: disc;
             margin-left: 0;
         }
-    
     </style>
 </head>
 
 <body>
-    
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg  bg-dark ">
-        <a class="navbar  btn-outline-success my-2 my-sm-0" href="{% url 'home' %}" style="text-decoration: none;"> <b>jUSTNOTE</b></a>
-        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon "></span>
-    </button>
 
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg  bg-dark">
+        <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
+            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                class="bi bi-border-width btn-outline-warning my-2 my-sm-0" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </button>
+
+
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
-                <li class="nav-item active ">
-                    <a class="nav-link  btn-outline-success" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item active">
+                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
+                            class="sr-only">(current)</span></a>
                 </li>
-            </ul>
+                <li class="nav-item active">
+                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
+                            class="sr-only">(current)</span></a>
+                </li>
+
         </div>
+
     </nav>
 
     <!-- form -->
@@ -49,32 +60,28 @@
             <img src="{% static 'image/justnote.png' %}" alt="" width="56" height="84" class="img1">
 
             <h2>Sign Up</h2>
-           {{form.errors}}
-            
+            {{form.errors}}
+
             <form action="{% url 'signup' %}" method="post" class="form">
                 {% csrf_token %}
                 <div class="form__field">
-                    USERNAME
-                    {{form.username}}
+                    USERNAME {{form.username}}
                 </div>
-                
+
                 <div class="form__field">
-                    EMAIL
-                    {{form.email}}
+                    EMAIL {{form.email}}
                 </div>
-                
+
                 <div class="form__field">
-                    PASSWORD
-                    {{form.password1}}
+                    PASSWORD {{form.password1}}
                 </div>
                 <div class="form__field">
-                    CONFIRM PASSWORD
-                    {{form.password2}}
+                    CONFIRM PASSWORD {{form.password2}}
                 </div>
-                
-                <input type="submit" value="Sign Up" style="margin-bottom: 0;"> 
-            
-            
+
+                <input type="submit" value="Sign Up" style="margin-bottom: 0;">
+
+
             </form>
             <p>Already have an accout? <a href="{% url 'login' %} ">Log in</a></p>
         </div>
