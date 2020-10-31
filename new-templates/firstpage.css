@@ -1,0 +1,26 @@
+.iconDetails {
+    margin-left: 2%;
+    float: left;
+    height: 400px;
+    width: 400px;
+}
+
+.cont2 {
+    width: 100%;
+    height: auto;
+    padding: 1%;
+}
+
+.img21 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.free1 {
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+    position: absolute;
+    left: 16%;
+}
