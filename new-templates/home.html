@@ -1,4 +1,3 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -14,38 +13,48 @@
     <link rel="shotcut icon" href="{% static 'image/justnote.png' %}" sizes="152 x 152">
     <link rel="stylesheet" href="Home.css">
     <title>justNote</title>
-    <style>
 
-    </style>
 
+    <script>
+        window.onload = function() {
+            document.getElementById('loader').style.display = "none";
+            document.getElementById('content').style.display = "block";
+
+        }
+    </script>
 </head>
 
 <body style="background-color: #354152;">
 
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg  bg-dark  ">
+    <div id="loader">
+        <img class="container" src="g2.gif" alt="">
+    </div>
+
+    <div id="content">
+        <!-- nav bar -->
+        <nav class="navbar navbar-expand-lg  bg-dark  ">
 
 
 
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                       </svg>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
-                    <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
+                        <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
             <svg width="1em" height="1em" viewBox="0 0 16 16"
                 class="bi bi-border-width btn-outline-warning my-2 my-sm-0" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
@@ -53,51 +62,52 @@
                     d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
             </svg>
         </button>
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
 
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
                             class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
                             class="sr-only">(current)</span></a>
-                </li>
+                    </li>
+
+            </div>
+
+        </nav>
+        <br><br>
+
+        <div class="d-flex justify-content-around">
+            <input class=" search1 " type="search" placeholder="Type Here to Search">
 
         </div>
 
-    </nav>
-    <br><br>
+        <form action="">
+            <div class="d-flex justify-content-center">
 
-    <div class="d-flex justify-content-around">
-        <input class=" search1 " type="search" placeholder="Type Here to Search">
 
+                <div>
+                    <input class="ser btn btn-outline-warning " type="submit" value=" Search ">
+
+                </div>
+            </div>
+
+        </form>
+
+        <!-- footer -->
+        <footer class="footer  ">
+            <div class="footer " style="background-color: #2c2b2b; text-align:center; ">
+                <div class="inner-footer ">
+                    <p style="color:aliceblue; ">© 2009 - 2020 by JustNote . All Rights
+                        <a href=" ">Copyright</a> | <a href=" ">Terms of Use &amp; Privacy Policy</a></p>
+                    <p style="color:aliceblue ">Contact us: <span class="mx-green mx-bold ">info.india<span class="mx-none ">@</span>justNote.com</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <form action="">
-        <div class="d-flex justify-content-center">
-
-
-            <div>
-                <input class="ser btn btn-outline-warning " type="submit" value=" Search ">
-
-            </div>
-        </div>
-
-    </form>
-
-    <!-- footer -->
-    <footer class="footer  ">
-        <div class="footer " style="background-color: #2c2b2b; text-align:center; ">
-            <div class="inner-footer ">
-                <p style="color:aliceblue; ">© 2009 - 2020 by JustNote . All Rights
-                    <a href=" ">Copyright</a> | <a href=" ">Terms of Use &amp; Privacy Policy</a></p>
-                <p style="color:aliceblue ">Contact us: <span class="mx-green mx-bold ">info.india<span class="mx-none ">@</span>justNote.com</span>
-                </p>
-            </div>
-        </div>
-    </footer>
 
 
     <!-- Optional JavaScript -->

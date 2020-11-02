@@ -18,34 +18,46 @@
 
     </style>
 
+    <script>
+        window.onload = function() {
+            document.getElementById('loader').style.display = "none";
+            document.getElementById('content').style.display = "block";
+
+        }
+    </script>
 </head>
 
 <body style="background-color: #354152;">
 
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg  bg-dark container-xl  ">
+    <div id="loader">
+        <img class="container" src="g2.gif" alt="">
+    </div>
+
+    <div id="content">
+        <!-- nav bar -->
+        <nav class="navbar navbar-expand-lg  bg-dark container-xl  ">
 
 
 
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                       </svg>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
-                    <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
+                        <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
             <svg width="1em" height="1em" viewBox="0 0 16 16"
                 class="bi bi-border-width btn-outline-warning my-2 my-sm-0" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
@@ -53,55 +65,56 @@
                     d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
             </svg>
         </button>
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
 
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
                             class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
                             class="sr-only">(current)</span></a>
-                </li>
+                    </li>
 
-        </div>
+            </div>
 
-    </nav>
-    {% if not lst%}
-    <h1 style="color:  rgba(240, 248, 255, 0.726);">No Note is Created Yet!!!</h1><br>
-    <h3 style="color:  rgba(240, 248, 255, 0.726);">Click New Button To create Your Note.</h3>
-    {% endif %}
-    <div id="toolbar ">
+        </nav>
+        {% if not lst%}
+        <h1 style="color:  rgba(240, 248, 255, 0.726);">No Note is Created Yet!!!</h1><br>
+        <h3 style="color:  rgba(240, 248, 255, 0.726);">Click New Button To create Your Note.</h3>
+        {% endif %}
+        <div id="toolbar ">
 
-        <tbody>
-            <tr>
-                <td>
-                    <a href="{% url 'create' user.id %}"> <button class="save btn btn-outline-warning my-2 my-sm-0" type="button" name="B1" title="New" onclick="New()">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{% url 'create' user.id %}"> <button class="save btn btn-outline-warning my-2 my-sm-0" type="button" name="B1" title="New" onclick="New()">
                     New
                 </button></a>
-                </td>
-            </tr>
-        </tbody>
-    </div>
-    <br>
-    <div class="container">
-        <div class="row ">
-            {% for post in lst %}
-            <div class="col-sm ">
-                <div class='col-sm-6 ' style="top:10px; ">
-                    <div class="card btn btn-outline-warning" style="width: 18rem;  width:470px; margin-top:20px; box-shadow: 10px 10px 5px rgb(8, 7, 7);">
-                        <div class="card-body  ">
-                            <h5 class="card-title"><a href="">{{post.title}}</h5>
+                    </td>
+                </tr>
+            </tbody>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row ">
+                {% for post in lst %}
+                <div class="col-sm ">
+                    <div class='col-sm-6 ' style="top:10px; ">
+                        <div class="card btn btn-outline-warning" style="width: 18rem;  width:470px; margin-top:20px; box-shadow: 10px 10px 5px rgb(8, 7, 7);">
+                            <div class="card-body  ">
+                                <h5 class="card-title"><a href="">{{post.title}}</h5>
                                 <p class="card-text" style=" width: 450px;overflow: hidden;height:100px;">{{post.content}}</p>
                                 <a href="{% url 'post_view' post.id %}" class="btn btn-primary">View</a>
-                                <a href="{% url 'update' post.id %}" class="btn btn-info">UPDATE</a>
-                                <a href="{% url 'delete' post.id %}" class="btn btn-danger">DELETE</a>
+                                    <a href="{% url 'update' post.id %}" class="btn btn-info">UPDATE</a>
+                                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">DELETE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

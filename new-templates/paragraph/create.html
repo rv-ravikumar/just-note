@@ -18,34 +18,47 @@
 
     </style>
 
+    <script>
+        window.onload = function() {
+            document.getElementById('loader').style.display = "none";
+            document.getElementById('content').style.display = "block";
+
+        }
+    </script>
 </head>
 
 <body style="background-color: #354152;">
 
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg  bg-dark  ">
+    <div id="loader">
+        <img class="container" src="g2.gif" alt="">
+    </div>
+
+    <div id="content">
+
+        <!-- nav bar -->
+        <nav class="navbar navbar-expand-lg  bg-dark  ">
 
 
 
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                       </svg>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
-                    <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
+                        <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
             <svg width="1em" height="1em" viewBox="0 0 16 16"
                 class="bi bi-border-width btn-outline-warning my-2 my-sm-0" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
@@ -53,54 +66,55 @@
                     d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
             </svg>
         </button>
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
                             class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
                             class="sr-only">(current)</span></a>
-                </li>
+                    </li>
 
-        </div>
+            </div>
 
-    </nav>
+        </nav>
 
-    <div id="toolbar ">
-
-        <tbody>
-            <tr>
-                <br><br>
-                <td><button class="save btn btn-outline-warning d-flex justify-content-center my-2 my-sm-0 " type="button " name="B1 " title="New " onclick="New() ">
-                            New
-                        </button></td>
-            </tr>
-        </tbody>
-    </div>
-    <br>
-    <form action=" {% if flag %} {% url 'create' user.id %} {% else %} {% url 'update' post_id %} {% endif %} " method="POST ">
-        {% csrf_token %}
-        <div>
+        <div id="toolbar ">
 
             <tbody>
-                <tr style="display:none ">
-                    <td style="color: aliceblue; ">Enter file name:</td>
-                    <td>
-                        <div></div>{{form.title}}
-                        <td><input class="btn btn-outline-warning my-2 my-sm-0 " type="submit " id="save " name="save " value="{% if flag %} Save {% else %} Update {% endif %} " style="padding:5px 10px 5px 10px; margin:0px "></td>
-
+                <tr>
+                    <br><br>
+                    <td><button class="save btn btn-outline-warning d-flex justify-content-center my-2 my-sm-0 " type="button " name="B1 " title="New " onclick="New() ">
+                            New
+                        </button></td>
                 </tr>
             </tbody>
         </div>
         <br>
+        <form action=" {% if flag %} {% url 'create' user.id %} {% else %} {% url 'update' post_id %} {% endif %} " method="POST ">
+            {% csrf_token %}
+            <div>
 
-        <!-- notebox -->
-        <div id="editable_text_box ">
-            {{form.content}}
-        </div>
-    </form>
+                <tbody>
+                    <tr style="display:none ">
+                        <td style="color: aliceblue; ">Enter file name:</td>
+                        <td>
+                            <div></div>{{form.title}}
+                            <td><input class="btn btn-outline-warning my-2 my-sm-0 " type="submit " id="save " name="save " value="{% if flag %} Save {% else %} Update {% endif %} " style="padding:5px 10px 5px 10px; margin:0px "></td>
+
+                    </tr>
+                </tbody>
+            </div>
+            <br>
+
+            <!-- notebox -->
+            <div id="editable_text_box ">
+                {{form.content}}
+            </div>
+        </form>
+    </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous ">

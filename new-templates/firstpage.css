@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 .iconDetails {
     margin-left: 2%;
     float: left;
@@ -23,4 +29,18 @@
     margin-right: auto;
     position: absolute;
     left: 16%;
+}
+
+#content {
+    display: none;
+}
+
+#loader {
+    width: auto;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    justify-content: center;
+    align-items: center;
 }

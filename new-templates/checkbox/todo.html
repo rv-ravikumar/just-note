@@ -19,43 +19,51 @@
 
     <title>Todo1</title>
 
-</head>4
+    <script>
+        window.onload = function() {
+            document.getElementById('loader').style.display = "none";
+            document.getElementById('content').style.display = "block";
 
-
+        }
+    </script>
+</head>
 
 <body style="background-color: #354152;">
 
+    <div id="loader">
+        <img class="container" src="g2.gif" alt="">
+    </div>
+
+    <div id="content">
 
 
 
 
 
-
-
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg  bg-dark  ">
+        <!-- nav bar -->
+        <nav class="navbar navbar-expand-lg  bg-dark  ">
 
 
 
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="navbar btn btn-outline-warning my-2 my-sm-0" href="{% url 'home' %}"> <b>jUSTNOTE</b></a>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <button type="navbar-toggler" class="btn btn-outline-warning rs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                       </svg>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
-                    <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item btn btn-outline-warning" type="button">Note</button>
+                        <button class="dropdown-item btn btn-outline-warning" type="button">TODO</button>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" a-label="Toggle navigation">
             <svg width="1em" height="1em" viewBox="0 0 16 16"
                 class="bi bi-border-width btn-outline-warning my-2 my-sm-0" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
@@ -63,67 +71,68 @@
                     d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
             </svg>
         </button>
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'login' %}">Login <span
                             class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link  btn-outline-warning my-2 my-sm-0" href="{% url 'signup' %}">Signin <span
                             class="sr-only">(current)</span></a>
-                </li>
+                    </li>
 
-        </div>
+            </div>
 
-    </nav>
+        </nav>
 
-    <div class="container">
-        <div class="register">
-            <br><br><br>
+        <div class="container">
+            <div class="register">
+                <br><br><br>
 
-            <form method="POST" action="{% url 'checkbox' user.id %}">
-                {% csrf_token %}
-                <input class="btn btn-light my-2 my-sm-0 input22" type="text" style="height:37px; width: 80%; font-family:verdana;" placeholder="Your To Do list">
-                <input type="button" class="btn btn-outline-primary my-2 my-sm-0" value="Add">
-            </form>
-            <br>
-            <h2 style="color:rgb(255, 174, 0);">Todo</h2>
-            <ul style="list-style-type: none;">
-                {% if not_done_todo_list %} {% for todo in not_done_todo_list %}
-                <li>
-                    <form action="{% url 'todo_done' todo.id %}" method="POST">
-                        {% csrf_token %}
-                        <span style="color:rgb(255, 174, 0); ">
+                <form method="POST" action="{% url 'checkbox' user.id %}">
+                    {% csrf_token %}
+                    <input class="btn btn-light my-2 my-sm-0 input22" type="text" style="height:37px; width: 80%; font-family:verdana;" placeholder="Your To Do list">
+                    <input type="button" class="btn btn-outline-primary my-2 my-sm-0" value="Add">
+                </form>
+                <br>
+                <h2 style="color:rgb(255, 174, 0);">Todo</h2>
+                <ul style="list-style-type: none;">
+                    {% if not_done_todo_list %} {% for todo in not_done_todo_list %}
+                    <li>
+                        <form action="{% url 'todo_done' todo.id %}" method="POST">
+                            {% csrf_token %}
+                            <span style="color:rgb(255, 174, 0); ">
                             <label style="text-align: center; text-transform: uppercase;" class="btn btn-outline-light
                             my-2 my-sm-0">WakeUp at 5.00 AM</label>
                         </span>
 
-                        <button type="button" class="btn btn-outline-primary my-2 my-sm-0">Done</button>
-                    </form>
-                </li>
-                <br> {% endfor %} {% else %}
-                <h1 style="color: rgba(240, 248, 255, 0.726);">Empty!! Add Your Todo List!</h1>
-                {% endif %}
-            </ul>
-            <hr style="background-color: rgb(255, 174, 0) ; height: 2px;">
-            <br>
-            <!-- in this what item you put it will automatically strike it -->
-            <h2 style="color:rgb(255, 174, 0);">Completed Task</h2>
-            <ul style="list-style-type: none;">
-                {% if done_todo_list %} {% for todo in done_todo_list %}
-                <li>
-                    <form action="{% url 'todo_del' todo.id %}" method="POST">
-                        {% csrf_token %}
-                        <strike style="text-align: center; text-transform: uppercase;" class="btn btn-outline-success
+                            <button type="button" class="btn btn-outline-primary my-2 my-sm-0">Done</button>
+                        </form>
+                    </li>
+                    <br> {% endfor %} {% else %}
+                    <h1 style="color: rgba(240, 248, 255, 0.726);">Empty!! Add Your Todo List!</h1>
+                    {% endif %}
+                </ul>
+                <hr style="background-color: rgb(255, 174, 0) ; height: 2px;">
+                <br>
+                <!-- in this what item you put it will automatically strike it -->
+                <h2 style="color:rgb(255, 174, 0);">Completed Task</h2>
+                <ul style="list-style-type: none;">
+                    {% if done_todo_list %} {% for todo in done_todo_list %}
+                    <li>
+                        <form action="{% url 'todo_del' todo.id %}" method="POST">
+                            {% csrf_token %}
+                            <strike style="text-align: center; text-transform: uppercase;" class="btn btn-outline-success
                                     my-2 my-sm-0">completed bracket</strike>
-                        <button type="button" class="btn btn-outline-danger my-2 my-sm-0">Delete</button>
-                    </form>
-                </li>
-                <br> {% endfor %} {% else %}
-                <h1 style="color: rgba(240, 248, 255, 0.726);"> No Complated Task is found!! </h1>
-                {% endif %}
-            </ul>
+                            <button type="button" class="btn btn-outline-danger my-2 my-sm-0">Delete</button>
+                        </form>
+                    </li>
+                    <br> {% endfor %} {% else %}
+                    <h1 style="color: rgba(240, 248, 255, 0.726);"> No Complated Task is found!! </h1>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
 
